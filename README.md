@@ -11,7 +11,7 @@ Intentclassification AI in python, easy to use intentclassifier package.
 ### **How to use**
 **Import:**
 ```py
-from intentclassification import IntentClassifier
+from intentclassification import IntentClassifier, handleTriggers
 ```
 
 **Intents Structure:**
