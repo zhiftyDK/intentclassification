@@ -8,6 +8,7 @@ IC.fit_model()
 #Save the model after fitting
 IC.save_model()
 
+#Loading a previously fitted/trained model
 #When you have a trained model you dont have to retrain everytime you run the program, just simply load the model like so
 IC.load_model()
 
@@ -24,13 +25,37 @@ def lights_on():
     print("Turning lights on!")
     #Run code for turning on your light here!
     #If anything in here is returned it will be parsed through the handleTrigger() function
-    #return "Lights have been turned on!"
+    return "Lights have been turned on!"
+
+def lights_off():
+    print("Turning lights off!")
+    #Run code for turning on your light here!
+    #If anything in here is returned it will be parsed through the handleTrigger() function
+    return "Lights have been turned off!"
+
+def fan_on():
+    print("Turning fan on!")
+    #Run code for turning on your light here!
+    #If anything in here is returned it will be parsed through the handleTrigger() function
+    return "Fan has been turned on!"
+
+def fan_off():
+    print("Turning fan off!")
+    #Run code for turning on your light here!
+    #If anything in here is returned it will be parsed through the handleTrigger() function
+    return "Fan has been turned off!"
 
 #Create an array with all the trigger functions, this is how the handleTrigger() function accesses them.
 trigger_functions = [lights_on]
 
 #Handletrigger takes 2 arguments, the result from the IC.predict() function and a probability threshold value for activating the trigger functions
-returned_value = IC.handleTriggers(prediction=result, confidence_threshold=0.75, trigger_functions=trigger_functions)
+#The probability_threshold can be changed to accomodate any missfires, the threshold might have to be changed depending on the size of intents.json
+returned_value = IC.handleTriggers(prediction=result, probability_threshold=0.75, trigger_functions=trigger_functions)
 
 #The returned value will be None by default depending on if the triggered trigger function returns anything, otherwise it will be the returned value
 print(returned_value)
+
+# The printed results of this full program will be the following:
+# {'intent': 'lights_on', 'probability': '0.9999784'}
+# Turning lights on!
+# Lights have been turned on!
