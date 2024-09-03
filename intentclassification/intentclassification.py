@@ -107,3 +107,9 @@ class IntentClassifier:
         predictions = self.model.predict(input_bag_of_words, verbose=0)[0]
         predicted_intent = self.intents[np.argmax(predictions)]
         return {"intent": predicted_intent, "probability": str(predictions[np.argmax(predictions)])}
+    
+    def handleTriggers(self, prediction, probability_threshold, trigger_functions):
+        if float(prediction["probability"]) > probability_threshold:
+            for function in trigger_functions:
+                if function.__name__ == prediction["intent"]:
+                    return function()

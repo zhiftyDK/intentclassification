@@ -1,23 +1,24 @@
-from setuptools import setup, find_packages
+import pathlib
+import setuptools
 
-VERSION = "0.0.2"
-DESCRIPTION = "A package that allows to build simple streams of video, audio and camera data."
-
-# Setting up
-setup(
+setuptools.setup(
     name="intentclassification",
-    version=VERSION,
+    version="0.0.4",
+    description="Intentclassification AI in python, easy to use intentclassifier package.",
+    long_description=pathlib.Path("README.md").read_text(),
+    long_description_content_type="text/markdown",
     author="zhiftyDK",
-    author_email="<juulstausholmoscar@gmail.com>",
-    description=DESCRIPTION,
-    packages=find_packages(),
-    install_requires=["tensorflow", "nltk", "numpy"],
-    keywords=["python", "ai", "intentclassification", "classification", "keyworddetection", "trigger"],
+    author_email="juulstausholmoscar@gmail.com",
+    license="The Unlicense",
+    project_urls={
+        "Source": "https://github.com/zhiftyDK/intentclassification",
+    },
     classifiers=[
+        "Development Status :: 3 - Alpha",
         "Intended Audience :: Developers",
         "Programming Language :: Python :: 3",
-        "Operating System :: Unix",
-        "Operating System :: MacOS :: MacOS X",
-        "Operating System :: Microsoft :: Windows",
-    ]
+    ],
+    install_requires=["nltk", "numpy", "tensorflow"],
+    packages=setuptools.find_packages(),
+    include_package_data=True,
 )
