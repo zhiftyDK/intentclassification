@@ -40,7 +40,7 @@ from intentclassification import IntentClassifier
 
 **Example:**
 ```py
-from intentclassification import IntentClassifier
+from intentclassification import IntentClassifier, handleTriggers
 
 #Initialise intentclassifier (Intents path being the path to the intents.json file) (Output path being the path to the folder the model will be saved in)
 IC = IntentClassifier(intents_path="./intents.json", output_path="./intentclassification")
@@ -66,33 +66,33 @@ print(result) # Example: {"intent": "lights_on", "probability": "0.999256"}
 def lights_on():
     print("Turning lights on!")
     #Run code for turning on your light here!
-    #If anything in here is returned it will be parsed through the handleTrigger() function
+    #If anything in here is returned it will be parsed through the handleTriggers() function
     return "Lights have been turned on!"
 
 def lights_off():
     print("Turning lights off!")
     #Run code for turning on your light here!
-    #If anything in here is returned it will be parsed through the handleTrigger() function
+    #If anything in here is returned it will be parsed through the handleTriggers() function
     return "Lights have been turned off!"
 
 def fan_on():
     print("Turning fan on!")
     #Run code for turning on your light here!
-    #If anything in here is returned it will be parsed through the handleTrigger() function
+    #If anything in here is returned it will be parsed through the handleTriggers() function
     return "Fan has been turned on!"
 
 def fan_off():
     print("Turning fan off!")
     #Run code for turning on your light here!
-    #If anything in here is returned it will be parsed through the handleTrigger() function
+    #If anything in here is returned it will be parsed through the handleTriggers() function
     return "Fan has been turned off!"
 
-#Create an array with all the trigger functions, this is how the handleTrigger() function accesses them.
+#Create an array with all the trigger functions, this is how the handleTriggers() function accesses them.
 trigger_functions = [lights_on]
 
-#Handletrigger takes 2 arguments, the result from the IC.predict() function and a probability threshold value for activating the trigger functions
+#Handletriggers takes 2 arguments, the result from the IC.predict() function and a probability threshold value for activating the trigger functions
 #The probability_threshold can be changed to accomodate any missfires, the threshold might have to be changed depending on the size of intents.json
-returned_value = IC.handleTriggers(prediction=result, probability_threshold=0.75, trigger_functions=trigger_functions)
+returned_value = handleTriggers(prediction=result, probability_threshold=0.75, trigger_functions=trigger_functions)
 
 #The returned value will be None by default depending on if the triggered trigger function returns anything, otherwise it will be the returned value
 print(returned_value)

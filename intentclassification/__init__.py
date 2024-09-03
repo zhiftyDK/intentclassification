@@ -1,1 +1,1 @@
-from intentclassification.intentclassification import IntentClassifier
+from intentclassification.intentclassification import IntentClassifier, handleTriggers
