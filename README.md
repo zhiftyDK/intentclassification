@@ -88,7 +88,7 @@ def fan_off():
     return "Fan has been turned off!"
 
 #Create an array with all the trigger functions, this is how the handleTriggers() function accesses them.
-trigger_functions = [lights_on]
+trigger_functions = [lights_on, lights_off, fan_on, fan_off]
 
 #Handletriggers takes 2 arguments, the result from the IC.predict() function and a probability threshold value for activating the trigger functions
 #The probability_threshold can be changed to accomodate any missfires, the threshold might have to be changed depending on the size of intents.json
