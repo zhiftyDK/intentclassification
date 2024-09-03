@@ -1,3 +1,7 @@
 build
 dist
 *.egg-info
+
+#Notes to self
+#To build the package run: py -m build
+#To publish the package run: twine upload dist/*
