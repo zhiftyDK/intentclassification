@@ -3,7 +3,7 @@ import setuptools
 
 setuptools.setup(
     name="intentclassification",
-    version="0.0.9",
+    version="0.1.1",
     description="Intentclassification AI in python, easy to use intentclassifier package.",
     long_description=pathlib.Path("README.md").read_text(),
     long_description_content_type="text/markdown",

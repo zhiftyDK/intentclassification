@@ -67,7 +67,7 @@ class IntentClassifier:
 
         return X, y
 
-    def fit_model(self, epochs: int = 200):
+    def fit_model(self, epochs: int = 25):
         X, y = self._prepare_training_data()
 
         self.model = tf.keras.Sequential()
@@ -112,4 +112,4 @@ def handleTriggers(prediction: dict, probability_threshold: float, trigger_funct
     if float(prediction["probability"]) > probability_threshold:
         for function in trigger_functions:
             if function.__name__ == prediction["intent"]:
-                return args
+                return function(args)
