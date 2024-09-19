@@ -10,7 +10,7 @@ os.environ["TF_CPP_MIN_LOG_LEVEL"] = "3"
 import tensorflow as tf
 
 class IntentClassifier:
-    def __init__(self, intents_path, output_path, model_name="classifier"):
+    def __init__(self, intents_path: str, output_path: str, model_name: str = "classifier"):
 
         model_path = os.path.join(output_path, model_name)
 
@@ -108,8 +108,8 @@ class IntentClassifier:
         predicted_intent = self.intents[np.argmax(predictions)]
         return {"intent": predicted_intent, "probability": str(predictions[np.argmax(predictions)])}
     
-def handleTriggers(prediction, probability_threshold, trigger_functions):
+def handleTriggers(prediction: dict, probability_threshold: float, trigger_functions: list, args: tuple):
     if float(prediction["probability"]) > probability_threshold:
         for function in trigger_functions:
             if function.__name__ == prediction["intent"]:
-                return function()
+                return args
