@@ -112,6 +112,7 @@ returned_value = handleTriggers(prediction=result, probability_threshold=0.75, t
 The returned_value is the value returned from any of the trigger functions. In this example it will be True if the example function is predicted and executed.
 
 #### **Example:**
+[Example files can be found here](https://github.com/zhiftyDK/intentclassification/tree/main/examples)
 ```py
 from intentclassification import IntentClassifier, handleTriggers
 
