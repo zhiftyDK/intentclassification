@@ -9,13 +9,19 @@ pip install intentclassification
 Intentclassification AI in python, easy to use intentclassifier package.
 
 ### **Docs:**
-* [Import library](#import:)
-* [intents.json structure](#import:)
-* [Initialize Intentclassifier class](#import:)
-* [Train/fit model](#import:)
-* [Load model](#import:)
-* [Handle triggers](#import:)
-* [Example code](#import:)
+- [Intentclassification](#intentclassification)
+    - [**Install**](#install)
+    - [**About**](#about)
+    - [**Docs:**](#docs)
+    - [**How to use**](#how-to-use)
+      - [**Import:**](#import)
+      - [**intents.json Structure:**](#intentsjson-structure)
+      - [**Initialize Intentclassifier class:**](#initialize-intentclassifier-class)
+      - [**Train/fit model:**](#trainfit-model)
+      - [**Load model:**](#load-model)
+      - [**Run/predict model:**](#runpredict-model)
+      - [**Handle triggers:**](#handle-triggers)
+      - [**Example:**](#example)
 
 ### **How to use**
 #### **Import:**
